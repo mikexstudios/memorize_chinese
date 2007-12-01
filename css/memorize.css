@@ -1,0 +1,94 @@
+#content {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+#content .question {
+
+}
+
+#content .question h2 {
+	font-size: 2em;
+	margin-bottom: 5px;
+}
+
+#content .question div.real {
+	border: 1px #000 solid;	
+	text-align: center;
+}
+
+#content .question p.main {
+	font-size: 4em;
+	padding: 0;
+	margin: 0;
+}
+
+#content .question p.extra {
+	font-size: 1.2em;
+}
+
+#content .answer {
+	/* margin-top: -40px; */
+	margin-top: 15px;
+}
+
+#content .answer h2 {
+	font-size: 2em;
+	margin-bottom: 5px;
+}
+
+#content .answer p.clicktoshow, div.real {
+	border: 1px #000 solid;	
+	text-align: center;
+	
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#content .answer p.short_answer {
+	font-size: 3em;
+	margin-bottom: 5px;
+}
+
+#content .answer p.extra {
+	font-size: 1.2em;
+}
+
+#content .answer p.clicktoshow {
+	font-size: 3em;
+}
+
+
+#content .grade {
+	margin-top: 10px;
+}
+
+#content .grade h2 {
+	font-size: 2em;
+	margin-bottom: 5px;
+}
+
+#content .grade ul {
+	text-align: center;
+	margin-top: 15px;
+	margin-left: -10px; /* corrects for the 20px right shift of each of the li's */
+	padding-left: 0px;
+}
+
+#content .grade ul li {
+	display: inline;
+	margin-left: 10px;
+	margin-bottom: 0px;
+}
+
+#content .grade ul li a {
+	border: 1px #000 solid;
+	padding: 5px 20px 5px 20px;
+	text-decoration: none;
+	color: #000;
+	margin-top: 40px;
+	font-size: 2em;
+}
