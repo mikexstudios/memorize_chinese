@@ -37,41 +37,53 @@ class Grade {
 		{
 			//We bump the inverval up
 			$this->card->interval = $this->card->interval + 1;
-			$this->card->update();
 			
 			//Compute next repetition date
-			$this->CI->set_next_repetition_date();
+			$next_repetition_days = $this->get_days_to_next_repetition($this->card->interval, $this->card->repetitions_to_memorize);
+			//Adjust current date (now) with days computed
+			//Days * 24 hours * 60 minutes * 60 seconds. We want to convert days to seconds.
+			$this->card->next_repetition_date = now() + ($next_repetition_days * 24 * 60 * 60); 
+			
+			//Reset the repetitions to memorize
+			$this->card->repetitions_to_memorize = 0;
+			
+			$this->card->update();
 		}
 		else
 		{
-			//We just set the new score
+			//We just set the new score and bump up the repetitions
 			$this->card->answer_rating = $this->new_grade;
+			$this->card->repetitions_to_memorize = $this->card->repetitions_to_memorize + 1;
 			$this->card->update();
 		}
 	}
 
 //--------------------------------------------------------------------------------------------------
 
-	function set_next_repetition_date() {
-		$interval = $this->card->interval;
-		$repetitions_to_memorize = intval($this->card->repetitions_to_memorize);
+	function get_days_to_next_repetition($interval, $repetitions_to_memorize) {
+		
+		/* No, NOT TRUE:
+		//Since reps will always be >= 2, we bump it down to 1 so that the switch
+		//statements look cleaner.
+		$repetitions_to_memorize = $repetitions_to_memorize - 1; 
+		*/
 		
 		$next_repetition_days = 0; //Initialize
 		switch($interval)
 		{
 			case 1:
 				$next_repetition_days = $this->_interval_1($repetitions_to_memorize);
+				break;
 			case 2:
 				$next_repetition_days =  $this->_interval_2($repetitions_to_memorize);
+				break;
 			default:
 				if($interval <= 0) { return false; }
 				$next_repetition_days = $this->_interval_gteq_3($interval, $repetitions_to_memorize);
 		}
 		
-		//Adjust current date (now) with days computed
-		//Days * 24 hours * 60 minutes * 60 seconds. We want to convert days to seconds.
-		$next_repetition_date = now() + ($next_repetition_days * 24 * 60 * 60); 
-		$this->card->next_repetition_date = $next_repetition_date;
+		return $next_repetition_days;
+		
 	}
 	
 	function _interval_1($repetitions) {
@@ -84,7 +96,7 @@ class Grade {
 			case 3:
 				return 2;
 			default:
-				if($interval <= 0) {return false;}
+				if($repetitions <= 0) {return false;}
 				return 1;
 		}
 	}
@@ -101,7 +113,7 @@ class Grade {
 			case 4:
 				return 5;
 			default:
-				if($interval <= 0) {return false;}
+				if($repetitions <= 0) {return false;}
 				return 1;
 		}	
 	}
@@ -125,12 +137,20 @@ class Grade {
 			case 3:
 				return floor(floatval($days)*0.94);
 			default:
-				if($interval <= 0) {return false;}
-				return floor(floatval($days)*0.44)-($repetitions-7);
+				if($repetitions <= 0) {return false;}
+				$next_days = floor(floatval($days)*0.44)-($repetitions-7);
+				if($next_days < 0) //Solves the issue where we have negative numbers
+					{ $next_days = 0; }
+				return $next_days;
 		}		
 	}
 	
-
 }
+
+/*
+//Testing
+$x = new Grade();
+echo $x->get_days_to_next_repetition(3,15);
+*/
 
 ?>
