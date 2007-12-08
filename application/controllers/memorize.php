@@ -34,6 +34,8 @@ class Memorize extends Controller {
 		$this->load->model('cards_model');
 		$this->load->model('decks_model');
 		
+		$this->load->model('user_progress');
+		
 		//Random card picking:
 		/*
 		$this->load->library('Pick_Cards_Random'); 
@@ -89,27 +91,27 @@ class Memorize extends Controller {
 		}
 	}
 	
-	function grade($in_id, $in_grade) {
+	function grade($in_card_id, $in_grade) {
 		$this->_initialize();
 		
-		$in_id = intval($in_id);
+		$this->load->model('user_progress');
+		
+		$in_card_id = intval($in_card_id);
 		$in_grade = intval($in_grade);
 	
 		//We currently don't implement elapsed_time
 		
 		$this->load->library('Grade');
-		$previous_grade = $this->grade->get_previous($in_id);
-		$new_grade = $this->grade->get_new($previous_grade, $in_grade);
+		$this->grade->card_id = $in_card_id;
+		$this->grade->set_new_grade($in_grade);
 		
-		//die($new_grade);
 		
-		$this->user_progress_model->set($in_id, $new_grade, now(), 0);
-	
-		//See if we need to set the current_grade_level down
+		//See if we need to set the current_grade_level down. This should be in
+		//Pick Cards!
 		$temp_cgl = $this->session->userdata('current_answer_rating');
-		if($new_grade < $temp_cgl)
+		if($in_grade < $temp_cgl)
 		{
-			$this->session->set_userdata('current_answer_rating', $new_grade);
+			$this->session->set_userdata('current_answer_rating', $in_grade);
 		}
 	
 		redirect('/memorize');

@@ -6,6 +6,8 @@ class Grade {
 	var $card_id;
 	var	$new_grade;
 	
+	var $card;
+	
 	function Grade() {
 		$this->CI =& get_instance();
 	}
@@ -14,29 +16,45 @@ class Grade {
 		$this->new_grade = $in_new_grade;
 		
 		//Now we run through algorithm for grading:
-		$this->CI->user_progress_model->card_id = $this->new_grade;
-		$previous_grade = $this->CI->user_progress_model->get_answer_rating();
-		if ($previous_grade === false) //We never encountered this card yet.
+		//$this->CI->user_progress_model->card_id = $this->new_grade;
+		$this->card = $this->CI->user_progress->find_by_card_id($this->card_id);
+		if($this->card === false) //We never encountered this card yet.
 		{
-			$previous_grade = 0; //Assign initial grade of zero. This will be adjusted by new grade.
+			//So we create a baseline record so that we can do the next steps easily
+			//(without keep checking for if card exists).
+			$this->card = new User_progress();
+			$this->card->card_id = $this->card_id;
+			$this->card->flipped = IS_FLIPPED;
+			//The other values, we have the default field set in MYSQL.
+			$this->card->save();
+			
+			//Update card values:
+			$this->card = $this->CI->user_progress->find_by_card_id($this->card_id);
 		}
 		
 		//If the user gets two 5's in a row, then we assume that the card has been learnt.
-		if($previous_grade >= 5 && $this->new_grade >= 5)
+		if($this->card->answer_rating >= 5 && $this->new_grade >= 5)
 		{
 			//We bump the inverval up
-			$this->CI->user_progress_model->increment_interval();
+			$this->card->interval = $this->card->interval + 1;
+			$this->card->update();
 			
 			//Compute next repetition date
 			$this->CI->set_next_repetition_date();
+		}
+		else
+		{
+			//We just set the new score
+			$this->card->answer_rating = $this->new_grade;
+			$this->card->update();
 		}
 	}
 
 //--------------------------------------------------------------------------------------------------
 
 	function set_next_repetition_date() {
-		$interval = intval($this->CI->user_progress_model->get_interval());
-		$repetitions_to_memorize = intval($this->CI->user_progress_model->get_repetitions());
+		$interval = $this->card->interval;
+		$repetitions_to_memorize = intval($this->card->repetitions_to_memorize);
 		
 		$next_repetition_days = 0; //Initialize
 		switch($interval)
@@ -53,7 +71,7 @@ class Grade {
 		//Adjust current date (now) with days computed
 		//Days * 24 hours * 60 minutes * 60 seconds. We want to convert days to seconds.
 		$next_repetition_date = now() + ($next_repetition_days * 24 * 60 * 60); 
-		$this->CI->user_progress_model->set_next_repetition_date($next_repetition_date);
+		$this->card->next_repetition_date = $next_repetition_date;
 	}
 	
 	function _interval_1($repetitions) {

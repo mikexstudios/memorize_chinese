@@ -38,7 +38,7 @@
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('session'); //database, template loaded in helpers
+$autoload['libraries'] = array('activerecord'); //database, template, session loaded in helpers
 
 
 /*
@@ -50,7 +50,7 @@ $autoload['libraries'] = array('session'); //database, template loaded in helper
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('hacks', 'template', 'url', 'pinyin', 'date', 'typography');
+$autoload['helper'] = array('hacks', 'constants', 'template', 'url', 'pinyin', 'date', 'typography');
 
 
 /*

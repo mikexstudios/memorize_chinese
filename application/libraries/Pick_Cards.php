@@ -71,10 +71,12 @@ class Pick_Cards {
 		$card_data = $this->CI->cards_model->get_one($card_id);
 		
 		//Check to see if card exists in user_progress table
-		$user_answer_rating = $this->CI->user_progress_model->get_answer_rating($card_id);
+		$user_answer_rating = $this->CI->user_progress->find_by_card_id($card_id);
+		
+		//$user_answer_rating = $this->CI->user_progress_model->get_answer_rating($card_id);
 		if($user_answer_rating !== false)
 		{
-			$card_data['answer_rating'] = $user_answer_rating;
+			$card_data['answer_rating'] = $user_answer_rating->answer_rating;
 		}
 		else
 		{
