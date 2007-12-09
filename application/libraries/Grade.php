@@ -16,7 +16,7 @@ class Grade {
 		$this->new_grade = $in_new_grade;
 		//Now we run through algorithm for grading:
 		//$this->CI->user_progress_model->card_id = $this->new_grade;
-		$this->card = $this->CI->user_progress->find_by_card_id($this->card_id);
+		$this->card = $this->CI->user_progress->find_by_card_id($this->card_id, array('flipped' => IS_FLIPPED));
 		if($this->card === false) //We never encountered this card yet.
 		{
 			//So we create a baseline record so that we can do the next steps easily
@@ -26,6 +26,13 @@ class Grade {
 			$this->card->flipped = IS_FLIPPED;
 			//The other values, we have the default field set in MYSQL.
 			$this->card->save();
+			
+			//We also create the flipped record at the same time with NULL values.
+			//This allows Pick Cards to pick the opposite cards too.
+			$flipped_card = new User_progress();
+			$flipped_card->card_id = $this->card_id;
+			$flipped_card->flipped = abs(IS_FLIPPED - 1); //The opposite value.
+			$flipped_card->save(); 
 			
 			//Update card values:
 			$this->card = $this->CI->user_progress->find_by_card_id($this->card_id, array('flipped' => IS_FLIPPED));
@@ -43,8 +50,9 @@ class Grade {
 			//Days * 24 hours * 60 minutes * 60 seconds. We want to convert days to seconds.
 			$this->card->next_repetition_date = now() + ($next_repetition_days * 24 * 60 * 60); 
 			
-			//Reset the repetitions to memorize
+			//Reset the repetitions to memorize and answer rating.
 			$this->card->repetitions_to_memorize = 0;
+			$this->card->answer_rating = 0;
 			
 			$this->card->update();
 		}

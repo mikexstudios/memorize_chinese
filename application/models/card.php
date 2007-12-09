@@ -40,7 +40,7 @@ class Card extends ActiveRecord {
 		$this->db->orderby('RAND()');
 		$this->db->limit(1);
 		$query = $this->db->get();
-		
+		//echo $this->db->last_query();
 		return element('id', $query->row_array());
 	}
 

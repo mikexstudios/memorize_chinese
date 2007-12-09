@@ -49,7 +49,7 @@ class Memorize extends Controller {
 		if($question === false)
 		{
 			//Clear flipped
-			$this->session->ro_userdata('flipped');
+			//$this->session->ro_userdata('flipped');
 			
 			//We clear any decks that we are focusing on (learn_deck) and prompt user
 			//to review old material. Otherwise, we show the done message.
