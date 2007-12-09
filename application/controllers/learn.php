@@ -25,7 +25,6 @@ class Learn extends Controller {
 		
 		$in_deck_id = intval($in_deck_id);
 		$this->session->set_userdata('learn_deck', $in_deck_id);
-		
 		if($flipped === true)
 		{
 			$this->session->set_userdata('flipped', true);

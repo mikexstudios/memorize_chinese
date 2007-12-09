@@ -14,7 +14,6 @@ class Grade {
 	
 	function set_new_grade($in_new_grade) {
 		$this->new_grade = $in_new_grade;
-		
 		//Now we run through algorithm for grading:
 		//$this->CI->user_progress_model->card_id = $this->new_grade;
 		$this->card = $this->CI->user_progress->find_by_card_id($this->card_id);
@@ -29,7 +28,7 @@ class Grade {
 			$this->card->save();
 			
 			//Update card values:
-			$this->card = $this->CI->user_progress->find_by_card_id($this->card_id);
+			$this->card = $this->CI->user_progress->find_by_card_id($this->card_id, array('flipped' => IS_FLIPPED));
 		}
 		
 		//If the user gets two 5's in a row, then we assume that the card has been learnt.

@@ -50,7 +50,7 @@ $autoload['libraries'] = array('activerecord'); //database, template, session lo
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('hacks', 'constants', 'template', 'url', 'pinyin', 'date', 'typography');
+$autoload['helper'] = array('hacks', 'constants', 'template', 'url', 'pinyin', 'date', 'typography', 'array');
 
 
 /*
