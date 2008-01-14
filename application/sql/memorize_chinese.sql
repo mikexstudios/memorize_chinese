@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2007 at 12:23 AM
+-- Generation Time: Jan 13, 2008 at 05:07 PM
 -- Server version: 5.0.45
 -- PHP Version: 5.2.4
 
@@ -19,7 +19,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `cards`
 --
 
-DROP TABLE IF EXISTS `cards`;
 CREATE TABLE `cards` (
   `id` int(100) NOT NULL auto_increment,
   `deck_id` int(10) NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE `cards` (
   `answer` varchar(400) NOT NULL,
   `extra` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=446 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=472 ;
 
 --
 -- Dumping data for table `cards`
@@ -347,7 +346,33 @@ INSERT INTO `cards` (`id`, `deck_id`, `question`, `answer`, `extra`) VALUES
 (442, 9, '韩', 'Hán', '(surname); (old name for Korea)'),
 (443, 9, '斯', 'sī', '(thus; now used mostly for sound:) 法西斯 Fascist'),
 (444, 9, '蒂', 'dì', 'base of a fruit; 烟蒂 cigarette butt'),
-(445, 9, '夫', 'fū', 'man; 丈夫 husband; 工夫 skill; 大夫 dàifu doctor  [fú]');
+(445, 9, '夫', 'fū', 'man; 丈夫 husband; 工夫 skill; 大夫 dàifu doctor  [fú]'),
+(446, 10, '逛', 'guàng', 'stroll, ramble, roam'),
+(447, 10, '街', 'jiē', 'street; 街道 street, neighborhood; 街头 street-corner'),
+(448, 10, '奇', 'qí', 'marvellous, rare, strange  [jī] odd (not even)'),
+(449, 10, '途', 'tú', 'way, route; 前途 prospect; 途经 via'),
+(450, 10, '亲', 'qīn', 'kin; kiss; 母亲 mother; 亲自 in person  [qìng] 亲家'),
+(451, 10, '顺', 'shùn', 'along, in the same direction as; obey; suitable'),
+(452, 10, '利', 'lì', '(利益 lìyì) benefit, profit; 利用 utilize; 胜利 triumph'),
+(453, 10, '排', 'pái', 'arrange; row, line     [pǎi] 排子车 handcart'),
+(454, 10, '队', 'duì', 'team; 部队 bùduì army; 队伍 duìwǔ troops'),
+(455, 10, '轮', 'lún', 'wheel'),
+(456, 10, '趁', 'chèn', 'take advantage of; while; 趁机会'),
+(457, 10, '寄', 'jì', 'to mail; 寄生虫 parasite'),
+(458, 10, '简', 'jiǎn', '简单 jiǎndān simple; 简体字 simple form character'),
+(459, 10, '筒', 'tǒng', 'tube; 电筒 diàntǒng flashlight'),
+(460, 10, '特', 'tè', '(特别 tèbié) special; 特点 tèdiǎn characteristic'),
+(461, 10, '却', 'què', 'however'),
+(462, 10, '拍', 'pāi', 'clap; paddle; 乒乓拍'),
+(463, 10, '程', 'chéng', '过程 process; 工程 engineering; 程度 extent'),
+(464, 10, '产', 'chǎn', '(产生 chǎnshēng) produce; 产品 chǎnpǐn product'),
+(465, 10, '裹', 'guǒ', 'bind, wrap; 包裹 bundle, package'),
+(466, 10, '陆', 'lù', 'land; 大陆 continent   [liù] six ( = 六)'),
+(467, 10, '联', 'lián', 'unite, join; 联系 liánxì contact'),
+(468, 10, '糖', 'táng', 'sugar; (糖果 tángguǒ) candy; 糖醋 tángcù sweet & sour'),
+(469, 10, '饼', 'bǐng', 'cake; 饼干 cracker, cookie'),
+(470, 10, '称', 'chēng', 'weigh; name  [chèn] 对称 duìchèn symmetric'),
+(471, 10, '丢', 'diū', 'lose, misplace');
 
 -- --------------------------------------------------------
 
@@ -355,12 +380,11 @@ INSERT INTO `cards` (`id`, `deck_id`, `question`, `answer`, `extra`) VALUES
 -- Table structure for table `decks`
 --
 
-DROP TABLE IF EXISTS `decks`;
 CREATE TABLE `decks` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `decks`
@@ -375,7 +399,8 @@ INSERT INTO `decks` (`id`, `name`) VALUES
 (6, 'Lesson 6'),
 (7, 'Lesson 7'),
 (8, 'Lesson 8'),
-(9, 'Lesson 9');
+(9, 'Lesson 9'),
+(10, 'Lesson 10');
 
 -- --------------------------------------------------------
 
@@ -383,7 +408,6 @@ INSERT INTO `decks` (`id`, `name`) VALUES
 -- Table structure for table `sessions`
 --
 
-DROP TABLE IF EXISTS `sessions`;
 CREATE TABLE `sessions` (
   `session_id` varchar(40) collate latin1_general_ci NOT NULL default '0',
   `session_start` int(10) unsigned NOT NULL default '0',
@@ -399,7 +423,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `session_start`, `session_last_activity`, `session_ip_address`, `session_user_agent`, `session_data`) VALUES
-('33468e8edf53bdbb3eb317738bb9fdb2', 1197152246, 1197188481, '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv', 'a:4:{s:21:"current_answer_rating";i:0;s:11:"card_number";i:17;s:10:"learn_deck";i:7;s:7:"flipped";b:1;}');
+('90c7b07cf83adc6c199aa6ac2b35218a', 1200253253, 1200272741, '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv', 'a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -407,7 +431,6 @@ INSERT INTO `sessions` (`session_id`, `session_start`, `session_last_activity`, 
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) NOT NULL auto_increment,
   `username` varchar(100) NOT NULL,
@@ -428,7 +451,6 @@ CREATE TABLE `users` (
 -- Table structure for table `user_progress`
 --
 
-DROP TABLE IF EXISTS `user_progress`;
 CREATE TABLE `user_progress` (
   `id` int(100) NOT NULL auto_increment,
   `card_id` int(100) NOT NULL,
@@ -438,9 +460,62 @@ CREATE TABLE `user_progress` (
   `interval` int(10) NOT NULL default '0',
   `repetitions_to_memorize` int(10) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `user_progress`
 --
 
+INSERT INTO `user_progress` (`id`, `card_id`, `flipped`, `answer_rating`, `next_repetition_date`, `interval`, `repetitions_to_memorize`) VALUES
+(1, 449, 0, 5, 1200445285, 1, 1),
+(2, 449, 1, 0, 0, 0, 0),
+(3, 458, 0, 0, 1200445609, 1, 0),
+(4, 458, 1, 0, 0, 0, 0),
+(5, 454, 0, 0, 1200441095, 1, 0),
+(6, 454, 1, 0, 0, 0, 0),
+(7, 457, 0, 0, 1200531995, 1, 0),
+(8, 457, 1, 0, 0, 0, 0),
+(9, 468, 0, 0, 1200445544, 1, 0),
+(10, 468, 1, 0, 0, 0, 0),
+(11, 470, 0, 0, 1200531070, 1, 0),
+(12, 470, 1, 0, 0, 0, 0),
+(13, 462, 0, 0, 1200531930, 1, 0),
+(14, 462, 1, 0, 0, 0, 0),
+(15, 460, 0, 0, 1200527698, 1, 0),
+(16, 460, 1, 0, 0, 0, 0),
+(17, 459, 0, 0, 1200531813, 1, 0),
+(18, 459, 1, 0, 0, 0, 0),
+(19, 448, 0, 0, 1200527498, 1, 0),
+(20, 448, 1, 0, 0, 0, 0),
+(21, 455, 0, 0, 1200441503, 1, 0),
+(22, 455, 1, 0, 0, 0, 0),
+(23, 463, 0, 0, 1200445569, 1, 0),
+(24, 463, 1, 0, 0, 0, 0),
+(25, 456, 0, 0, 1200445553, 1, 0),
+(26, 456, 1, 0, 0, 0, 0),
+(27, 466, 0, 0, 1200359127, 1, 0),
+(28, 466, 1, 0, 0, 0, 0),
+(29, 471, 0, 0, 1200445507, 1, 0),
+(30, 471, 1, 0, 0, 0, 0),
+(31, 451, 0, 0, 1200445451, 1, 0),
+(32, 451, 1, 0, 0, 0, 0),
+(33, 467, 0, 0, 1200531992, 1, 0),
+(34, 467, 1, 0, 0, 0, 0),
+(35, 447, 0, 0, 1200531973, 1, 0),
+(36, 447, 1, 0, 0, 0, 0),
+(37, 450, 0, 0, 1200531764, 1, 0),
+(38, 450, 1, 0, 0, 0, 0),
+(39, 453, 0, 0, 1200531206, 1, 0),
+(40, 453, 1, 0, 0, 0, 0),
+(41, 464, 0, 0, 1200445548, 1, 0),
+(42, 464, 1, 0, 0, 0, 0),
+(43, 446, 0, 0, 1200532006, 1, 0),
+(44, 446, 1, 0, 0, 0, 0),
+(45, 465, 0, 0, 1200445541, 1, 0),
+(46, 465, 1, 0, 0, 0, 0),
+(47, 469, 0, 0, 1200531745, 1, 0),
+(48, 469, 1, 0, 0, 0, 0),
+(49, 452, 0, 0, 1200359222, 1, 0),
+(50, 452, 1, 0, 0, 0, 0),
+(51, 461, 0, 0, 1200618377, 1, 0),
+(52, 461, 1, 0, 0, 0, 0);
