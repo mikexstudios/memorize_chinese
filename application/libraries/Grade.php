@@ -39,7 +39,8 @@ class Grade {
 		}
 		
 		//If the user gets two 5's in a row, then we assume that the card has been learnt.
-		if($this->card->answer_rating >= 5 && $this->new_grade >= 5)
+		//NEW: Fixes #4. We change the answer rating to >=4 now.
+		if($this->card->answer_rating >= 4 && $this->new_grade >= 5)
 		{
 			//We bump the inverval up
 			$this->card->interval = $this->card->interval + 1;
@@ -58,8 +59,16 @@ class Grade {
 		}
 		else
 		{
+			//Fixes #1: If answer rating is 5 and new grade is >= 3, then we keep it at 5.
+			if($this->card->answer_rating >= 5 && $this->new_grade >= 3)
+			{
+				$this->card->answer_rating = 5;	
+			}
+			else
+			{
+				$this->card->answer_rating = $this->new_grade;
+			}
 			//We just set the new score and bump up the repetitions
-			$this->card->answer_rating = $this->new_grade;
 			$this->card->repetitions_to_memorize = $this->card->repetitions_to_memorize + 1;
 			$this->card->update();
 		}
