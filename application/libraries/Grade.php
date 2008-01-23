@@ -42,20 +42,15 @@ class Grade {
 		//NEW: Fixes #4. We change the answer rating to >=4 now.
 		if($this->card->answer_rating >= 4 && $this->new_grade >= 5)
 		{
-			//We bump the inverval up
-			$this->card->interval = $this->card->interval + 1;
-			
-			//Compute next repetition date
-			$next_repetition_days = $this->get_days_to_next_repetition($this->card->interval, $this->card->repetitions_to_memorize);
-			//Adjust current date (now) with days computed
-			//Days * 24 hours * 60 minutes * 60 seconds. We want to convert days to seconds.
-			$this->card->next_repetition_date = now() + ($next_repetition_days * 24 * 60 * 60); 
-			
-			//Reset the repetitions to memorize and answer rating.
-			$this->card->repetitions_to_memorize = 0;
-			$this->card->answer_rating = 0;
-			
-			$this->card->update();
+			$this->card_learned();
+		}
+		//Fixes #5 (if a new card is graded 5 off the bat, then we pass it)
+		else if($this->card->repetitions_to_memorize == 0 && $this->new_grade == 5)
+		{
+			//Fixes the case where repetitions is zero and no next_memorize time is
+			//computed:
+			$this->card->repetitions_to_memorize = $this->card->repetitions_to_memorize + 1; 
+			$this->card_learned();
 		}
 		else
 		{
@@ -72,6 +67,24 @@ class Grade {
 			$this->card->repetitions_to_memorize = $this->card->repetitions_to_memorize + 1;
 			$this->card->update();
 		}
+	}
+	
+	function card_learned() {
+		//We bump the inverval up
+		$this->card->interval = $this->card->interval + 1;
+		
+		//Compute next repetition date
+		$next_repetition_days = $this->get_days_to_next_repetition($this->card->interval, $this->card->repetitions_to_memorize);
+
+		//Adjust current date (now) with days computed
+		//Days * 24 hours * 60 minutes * 60 seconds. We want to convert days to seconds.
+		$this->card->next_repetition_date = now() + ($next_repetition_days * 24 * 60 * 60); 
+		
+		//Reset the repetitions to memorize and answer rating.
+		$this->card->repetitions_to_memorize = 0;
+		$this->card->answer_rating = 0;
+		
+		$this->card->update();
 	}
 
 //--------------------------------------------------------------------------------------------------

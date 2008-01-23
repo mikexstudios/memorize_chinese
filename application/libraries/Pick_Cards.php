@@ -3,6 +3,8 @@
 class Pick_Cards {
 	var $CI;
 	var $deck_id;
+	
+	var $previous_card_id = -1; //Init to a non-id
 
 	function Pick_Cards() {
 		$this->CI =& get_instance();
@@ -46,6 +48,20 @@ class Pick_Cards {
 			//rating levels (5 times).
 			return false;
 		}
+		
+		//Keep track of what the previous card id was so that we can make sure
+		//that the same card id doesn't appear in a row. Fixes #3.
+		//NOTE!! The reason why this doesn't work is because we are stateless :).
+		//       Must use sessions then, I guess!
+		if($this->previous_card_id == $card_id)
+		{
+			echo 'duplicate card!';
+			return $this->get_next();
+			//The rest is skipped	
+		}
+		
+		$this->previous_card_id = $card_id;
+		
 		
 		$card_data = $this->CI->card->find_by_id($card_id);
 		

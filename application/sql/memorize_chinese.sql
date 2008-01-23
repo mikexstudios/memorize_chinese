@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2008 at 05:07 PM
+-- Generation Time: Jan 23, 2008 at 01:36 AM
 -- Server version: 5.0.45
 -- PHP Version: 5.2.4
 
@@ -19,6 +19,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `cards`
 --
 
+DROP TABLE IF EXISTS `cards`;
 CREATE TABLE `cards` (
   `id` int(100) NOT NULL auto_increment,
   `deck_id` int(10) NOT NULL,
@@ -26,7 +27,7 @@ CREATE TABLE `cards` (
   `answer` varchar(400) NOT NULL,
   `extra` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=472 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=523 ;
 
 --
 -- Dumping data for table `cards`
@@ -372,7 +373,58 @@ INSERT INTO `cards` (`id`, `deck_id`, `question`, `answer`, `extra`) VALUES
 (468, 10, '糖', 'táng', 'sugar; (糖果 tángguǒ) candy; 糖醋 tángcù sweet & sour'),
 (469, 10, '饼', 'bǐng', 'cake; 饼干 cracker, cookie'),
 (470, 10, '称', 'chēng', 'weigh; name  [chèn] 对称 duìchèn symmetric'),
-(471, 10, '丢', 'diū', 'lose, misplace');
+(471, 10, '丢', 'diū', 'lose, misplace'),
+(472, 11, '游', 'yóu', '(游泳 yóuyǒng) swim; (旅游 lǚyóu) travel'),
+(473, 11, '览', 'lǎn', '展览 zhǎnlǎn exhibition; 游览 yóulǎn go sightseeing'),
+(474, 11, '许', 'xǔ', 'allow; 许多 xǔduō a lot; 也许 yěxǔ perhaps  [hǔ]'),
+(475, 11, '胜', 'shèng', '(胜利 shènglì) victory, triumph, win'),
+(476, 11, '迹', 'jì', '(痕迹 hénjì) mark, trace, vestige; 奇迹 qíjì miracle'),
+(477, 11, '故', 'gù', 'cause; therefore; 故事 gùshi story; 故意 gùyì on purpose'),
+(478, 11, '挤', 'jǐ', 'squeeze; crowd; push, jostle; 拥挤 yōngjǐ crowded'),
+(479, 11, '度', 'dù', 'degree, extent; 制度 system   [duó] 猜度 cāiduó surmise'),
+(480, 11, '筑', 'zhù', 'build, construct; 建筑学 architecture  [Zhú]'),
+(481, 11, '窄', 'zhǎi', 'narrow'),
+(482, 11, '妙', 'miào', 'wonderful; subtle; 莫名其妙'),
+(483, 11, '龄', 'líng', '(年龄) age; duration'),
+(484, 11, '珠', 'zhū', '(珠子 zhūzi) pearl; bead; 眼珠子 eyeball; 泪珠 teardrop'),
+(485, 11, '狠', 'hěn', 'ruthless'),
+(486, 11, '瞪', 'dèng', 'open (one''s eyes) wide, stare, glare; 瞪眼'),
+(487, 11, '湖', 'hú', 'lake; 湖泊 húpō lakes; 湖南 Hunan; 湖北 Hubei'),
+(488, 11, '划', 'huá', 'row (a boat) (F劃) scratch [huà] (F劃) (计划 jìhuà) plan (F畫)'),
+(489, 11, '墙', 'qiáng', '(墙壁 qiángbì) wall'),
+(490, 11, '印', 'yìn', '(印刷 yìnshuā) print; (印章 yìnzhāng) seal'),
+(491, 11, '象', 'xiàng', 'appearance; (大象 dàxiàng) elephant'),
+(492, 11, '深', 'shēn', 'deep; 深刻 shēnkè profound; 深夜 shēnyè late at night'),
+(493, 11, '陵', 'líng', 'hill, mound; tomb; 十三陵 the 13 Ming tombs'),
+(494, 11, '幕', 'mù', 'curtain; act (of play); 屏幕 píngmù screen'),
+(495, 11, '壮', 'zhuàng', 'robust, magnificent; 壮丽 majestic; 壮族'),
+(496, 11, '观', 'guān', 'view;  Contemplation    [guàn] 道观 temple'),
+(497, 11, '催', 'cuī', 'urge, hurry, hasten'),
+(498, 11, '恋', 'liàn', '恋爱 love (as in love affair)'),
+(499, 11, '舍', 'shè', '宿舍 sùshè dormitory  [shě] (F捨) give up, abandon; 舍不得'),
+(500, 11, '突', 'tū', 'charge forward; stick out; 突然 tūrán suddenly'),
+(501, 11, '葬', 'zàng', '(埋葬 máizàng) bury (the dead); 葬礼 funeral'),
+(502, 11, '忍', 'rěn', 'endure, tolerate; 忍不住 can''t bear; can''t resist'),
+(503, 11, '哈', 'hā', '(sound of laughter, etc)  [hǎ] [hà] [ha]'),
+(504, 11, '笑', 'xiào', 'laugh'),
+(505, 11, '伟', 'wěi', '(伟大) great, mighty; 宏伟 hóngwěi, 雄伟 xióngwěi grand'),
+(506, 11, '碑', 'bēi', 'upright stone tablet (monument, etc); 墓碑 tombstone'),
+(507, 11, '媳', 'xí', '媳妇 xífù daughter-in-law; 童养媳 tóngyǎngxí child bride'),
+(508, 11, '妇', 'fù', '(妇女 fùnǚ) woman; 夫妇 fūfù married couple'),
+(509, 11, '秘', 'mì', '秘密 mìmì secret; 秘书 secretary  [bì] 秘鲁 Peru'),
+(510, 11, '密', 'mì', 'thick, dense'),
+(511, 11, '敬', 'jìng', '(尊敬 zūnjìng) respect'),
+(512, 11, '祝', 'zhù', 'express good wishes; 庆祝 qìngzhù celebrate; 祝贺 congrat.'),
+(513, 11, '夫', 'fū', 'man; 丈夫 husband; 工夫 skill; 大夫 dàifu doctor  [fú]'),
+(514, 11, '庙', 'miào', 'temple'),
+(515, 11, '秦', 'Qín', 'the Qin (Ch''in) Dynasty, 221-207 B.C. (Qín --> China)'),
+(516, 11, '淮', 'Huái', 'a river in 河南 and 安徽'),
+(517, 11, '玄', 'xuán', 'black, dark; profound, abstruse; 玄学 metaphysics'),
+(518, 11, '武', 'wǔ', 'military; 武器 wǔqì weapon; 武术 wǔshù martial arts'),
+(519, 11, '孙', 'sūn', 'grandchild; 子孙 descendants; 孙悟空; 孙中山'),
+(520, 11, '杨', 'yáng', 'poplar tree; 三角叶杨 cottonwood'),
+(521, 11, '妃', 'fēi', 'imperial concubine; wife of prince etc.'),
+(522, 11, '池', 'chí', '(池塘 chítáng) pool; 游泳池 swimming pool; 电池 battery');
 
 -- --------------------------------------------------------
 
@@ -380,11 +432,12 @@ INSERT INTO `cards` (`id`, `deck_id`, `question`, `answer`, `extra`) VALUES
 -- Table structure for table `decks`
 --
 
+DROP TABLE IF EXISTS `decks`;
 CREATE TABLE `decks` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `decks`
@@ -400,7 +453,8 @@ INSERT INTO `decks` (`id`, `name`) VALUES
 (7, 'Lesson 7'),
 (8, 'Lesson 8'),
 (9, 'Lesson 9'),
-(10, 'Lesson 10');
+(10, 'Lesson 10'),
+(11, 'Lesson 11');
 
 -- --------------------------------------------------------
 
@@ -408,6 +462,7 @@ INSERT INTO `decks` (`id`, `name`) VALUES
 -- Table structure for table `sessions`
 --
 
+DROP TABLE IF EXISTS `sessions`;
 CREATE TABLE `sessions` (
   `session_id` varchar(40) collate latin1_general_ci NOT NULL default '0',
   `session_start` int(10) unsigned NOT NULL default '0',
@@ -423,7 +478,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `session_start`, `session_last_activity`, `session_ip_address`, `session_user_agent`, `session_data`) VALUES
-('90c7b07cf83adc6c199aa6ac2b35218a', 1200253253, 1200272741, '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv', 'a:0:{}');
+('cab2804ab016edef22681600ea4a70f5', 1201067824, 1201080862, '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv', 'a:1:{s:10:"learn_deck";i:11;}');
 
 -- --------------------------------------------------------
 
@@ -431,6 +486,7 @@ INSERT INTO `sessions` (`session_id`, `session_start`, `session_last_activity`, 
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) NOT NULL auto_increment,
   `username` varchar(100) NOT NULL,
@@ -451,6 +507,7 @@ CREATE TABLE `users` (
 -- Table structure for table `user_progress`
 --
 
+DROP TABLE IF EXISTS `user_progress`;
 CREATE TABLE `user_progress` (
   `id` int(100) NOT NULL auto_increment,
   `card_id` int(100) NOT NULL,
@@ -460,7 +517,7 @@ CREATE TABLE `user_progress` (
   `interval` int(10) NOT NULL default '0',
   `repetitions_to_memorize` int(10) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=119 ;
 
 --
 -- Dumping data for table `user_progress`
@@ -468,54 +525,120 @@ CREATE TABLE `user_progress` (
 
 INSERT INTO `user_progress` (`id`, `card_id`, `flipped`, `answer_rating`, `next_repetition_date`, `interval`, `repetitions_to_memorize`) VALUES
 (1, 449, 0, 5, 1200445285, 1, 1),
-(2, 449, 1, 0, 0, 0, 0),
+(2, 449, 1, 0, 1200540151, 1, 0),
 (3, 458, 0, 0, 1200445609, 1, 0),
-(4, 458, 1, 0, 0, 0, 0),
+(4, 458, 1, 0, 1200713079, 1, 0),
 (5, 454, 0, 0, 1200441095, 1, 0),
-(6, 454, 1, 0, 0, 0, 0),
+(6, 454, 1, 5, 1200713677, 1, 1),
 (7, 457, 0, 0, 1200531995, 1, 0),
-(8, 457, 1, 0, 0, 0, 0),
+(8, 457, 1, 0, 1200713397, 1, 0),
 (9, 468, 0, 0, 1200445544, 1, 0),
-(10, 468, 1, 0, 0, 0, 0),
+(10, 468, 1, 0, 1200627274, 1, 0),
 (11, 470, 0, 0, 1200531070, 1, 0),
-(12, 470, 1, 0, 0, 0, 0),
+(12, 470, 1, 0, 1200626723, 1, 0),
 (13, 462, 0, 0, 1200531930, 1, 0),
-(14, 462, 1, 0, 0, 0, 0),
+(14, 462, 1, 0, 1200713394, 1, 0),
 (15, 460, 0, 0, 1200527698, 1, 0),
-(16, 460, 1, 0, 0, 0, 0),
+(16, 460, 1, 0, 1200626650, 1, 0),
 (17, 459, 0, 0, 1200531813, 1, 0),
-(18, 459, 1, 0, 0, 0, 0),
+(18, 459, 1, 0, 1200713063, 1, 0),
 (19, 448, 0, 0, 1200527498, 1, 0),
-(20, 448, 1, 0, 0, 0, 0),
+(20, 448, 1, 0, 1200713089, 1, 0),
 (21, 455, 0, 0, 1200441503, 1, 0),
-(22, 455, 1, 0, 0, 0, 0),
+(22, 455, 1, 0, 1200713606, 1, 0),
 (23, 463, 0, 0, 1200445569, 1, 0),
-(24, 463, 1, 0, 0, 0, 0),
+(24, 463, 1, 0, 1200627158, 1, 0),
 (25, 456, 0, 0, 1200445553, 1, 0),
-(26, 456, 1, 0, 0, 0, 0),
+(26, 456, 1, 0, 1200713108, 1, 0),
 (27, 466, 0, 0, 1200359127, 1, 0),
-(28, 466, 1, 0, 0, 0, 0),
+(28, 466, 1, 0, 1200627173, 1, 0),
 (29, 471, 0, 0, 1200445507, 1, 0),
-(30, 471, 1, 0, 0, 0, 0),
+(30, 471, 1, 0, 1200712631, 1, 0),
 (31, 451, 0, 0, 1200445451, 1, 0),
-(32, 451, 1, 0, 0, 0, 0),
+(32, 451, 1, 5, 1200713487, 1, 1),
 (33, 467, 0, 0, 1200531992, 1, 0),
-(34, 467, 1, 0, 0, 0, 0),
+(34, 467, 1, 0, 1200627071, 1, 0),
 (35, 447, 0, 0, 1200531973, 1, 0),
-(36, 447, 1, 0, 0, 0, 0),
+(36, 447, 1, 0, 1200713549, 1, 0),
 (37, 450, 0, 0, 1200531764, 1, 0),
-(38, 450, 1, 0, 0, 0, 0),
+(38, 450, 1, 0, 1200713094, 1, 0),
 (39, 453, 0, 0, 1200531206, 1, 0),
-(40, 453, 1, 0, 0, 0, 0),
+(40, 453, 1, 0, 1200713085, 1, 0),
 (41, 464, 0, 0, 1200445548, 1, 0),
-(42, 464, 1, 0, 0, 0, 0),
+(42, 464, 1, 0, 1200713576, 1, 0),
 (43, 446, 0, 0, 1200532006, 1, 0),
-(44, 446, 1, 0, 0, 0, 0),
+(44, 446, 1, 0, 1200713431, 1, 0),
 (45, 465, 0, 0, 1200445541, 1, 0),
-(46, 465, 1, 0, 0, 0, 0),
+(46, 465, 1, 0, 1200713138, 1, 0),
 (47, 469, 0, 0, 1200531745, 1, 0),
-(48, 469, 1, 0, 0, 0, 0),
+(48, 469, 1, 0, 1200712931, 1, 0),
 (49, 452, 0, 0, 1200359222, 1, 0),
-(50, 452, 1, 0, 0, 0, 0),
+(50, 452, 1, 0, 1200712427, 1, 0),
 (51, 461, 0, 0, 1200618377, 1, 0),
-(52, 461, 1, 0, 0, 0, 0);
+(52, 461, 1, 0, 1200713578, 1, 0),
+(53, 478, 0, 2, 1200799667, 1, 1),
+(54, 478, 1, 0, 1200800638, 1, 0),
+(55, 474, 0, 3, 1200886233, 1, 1),
+(56, 474, 1, 0, 1200886953, 1, 0),
+(57, 479, 0, 2, 1200627528, 1, 1),
+(58, 479, 1, 0, 1200714345, 1, 0),
+(59, 475, 0, 0, 1200800257, 1, 0),
+(60, 475, 1, 0, 1200886970, 1, 0),
+(61, 473, 0, 0, 1201077663, 2, 0),
+(62, 473, 1, 0, 1200887162, 1, 0),
+(63, 477, 0, 2, 1200800285, 1, 1),
+(64, 477, 1, 0, 1200887070, 1, 0),
+(65, 472, 0, 0, 1201767724, 2, 0),
+(66, 472, 1, 0, 1200886875, 1, 0),
+(67, 480, 0, 5, 1200713934, 1, 2),
+(68, 480, 1, 0, 1200886962, 1, 0),
+(69, 476, 0, 0, 1200713896, 1, 0),
+(70, 476, 1, 0, 1200800736, 1, 0),
+(71, 481, 0, 0, 1201071889, 2, 0),
+(72, 481, 1, 0, 1200887047, 1, 0),
+(73, 504, 0, 0, 1201423373, 1, 0),
+(74, 504, 1, 0, 0, 0, 0),
+(75, 498, 0, 0, 0, 0, 2),
+(76, 498, 1, 0, 0, 0, 0),
+(77, 512, 0, 0, 1201426462, 1, 0),
+(78, 512, 1, 0, 0, 0, 0),
+(79, 489, 0, 2, 0, 0, 2),
+(80, 489, 1, 0, 0, 0, 0),
+(81, 509, 0, 5, 0, 0, 2),
+(82, 509, 1, 0, 0, 0, 0),
+(83, 511, 0, 0, 0, 0, 1),
+(84, 511, 1, 0, 0, 0, 0),
+(85, 507, 0, 3, 0, 0, 2),
+(86, 507, 1, 0, 0, 0, 0),
+(87, 501, 0, 5, 0, 0, 2),
+(88, 501, 1, 0, 0, 0, 0),
+(89, 522, 0, 0, 0, 0, 1),
+(90, 522, 1, 0, 0, 0, 0),
+(91, 497, 0, 5, 0, 0, 2),
+(92, 497, 1, 0, 0, 0, 0),
+(93, 519, 0, 0, 1201073524, 1, 0),
+(94, 519, 1, 0, 0, 0, 0),
+(95, 495, 0, 0, 0, 0, 1),
+(96, 495, 1, 0, 0, 0, 0),
+(97, 514, 0, 4, 0, 0, 1),
+(98, 514, 1, 0, 0, 0, 0),
+(99, 500, 0, 2, 0, 0, 3),
+(100, 500, 1, 0, 0, 0, 0),
+(101, 490, 0, 0, 1201074229, 2, 0),
+(102, 490, 1, 0, 0, 0, 0),
+(103, 485, 0, 0, 1201074169, 1, 0),
+(104, 485, 1, 0, 0, 0, 0),
+(105, 488, 0, 0, 1201078391, 2, 0),
+(106, 488, 1, 0, 0, 0, 0),
+(107, 486, 0, 2, 0, 0, 2),
+(108, 486, 1, 0, 0, 0, 0),
+(109, 515, 0, 2, 0, 0, 2),
+(110, 515, 1, 0, 0, 0, 0),
+(111, 487, 0, 0, 1201075636, 1, 0),
+(112, 487, 1, 0, 0, 0, 0),
+(113, 496, 0, 1, 0, 0, 1),
+(114, 496, 1, 0, 0, 0, 0),
+(115, 503, 0, 0, 1201076978, 2, 0),
+(116, 503, 1, 0, 0, 0, 0),
+(117, 518, 0, 4, 0, 0, 2),
+(118, 518, 1, 0, 0, 0, 0);
