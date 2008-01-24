@@ -27,9 +27,11 @@ class Card extends ActiveRecord {
 		$this->db->select(CARDS_TABLE.'.id');
 		$this->db->from(CARDS_TABLE);
 		$this->db->join(USER_PROGRESS_TABLE, CARDS_TABLE.'.id = '.USER_PROGRESS_TABLE.'.card_id', 'left');
-		$where = '(('.USER_PROGRESS_TABLE.'.next_repetition_date IS NULL
-						 OR '.USER_PROGRESS_TABLE.'.next_repetition_date <= '.now().')
-						 AND '.USER_PROGRESS_TABLE.'.flipped = '.IS_FLIPPED.')';		
+		#The below works for some reason, and if I change the parentheses around, it doesn't work anymore.
+		#Therefore, we shouldn't really touch this.
+		$where = '('.USER_PROGRESS_TABLE.'.next_repetition_date IS NULL
+						 OR ('.USER_PROGRESS_TABLE.'.next_repetition_date <= '.now().'
+						 AND '.USER_PROGRESS_TABLE.'.flipped = '.IS_FLIPPED.'))';		
 		
 		if($in_where !== false && is_string($in_where))
 		{
