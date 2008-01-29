@@ -25,7 +25,7 @@ foreach($lines as $line)
 foreach($characters as $i=>$each_character)
 {
 
-	echo 'INSERT INTO cards (deck_id, question, answer, extra) VALUES ('.$deck_id.', "'.$each_character.'", "'.$pinyins[$i].'", "'.$definitions[$i].'");'."\n";
+	echo 'INSERT INTO cards (deck_id, question, answer, extra) VALUES ('.$deck_id.', "'.$each_character.'", "'.addslashes($pinyins[$i]).'", "'.addslashes($definitions[$i]).'");'."\n";
 
 }
 
