@@ -11,7 +11,14 @@ class Pick_Cards {
 	}
 	
 	function set_deck($in_deck_id = false) {
-		$this->deck_id = intval($in_deck_id);
+		if($in_deck_id === false)
+		{
+			$this->deck_id = false;
+		}
+		else
+		{
+			$this->deck_id = intval($in_deck_id);
+		}
 	}
 	
 	function _get_next_id() {
@@ -23,7 +30,7 @@ class Pick_Cards {
 		}
 		else
 		{
-			$random_card = $this->CI->card->get_one_id_random_joined();
+			$random_card_id = $this->CI->card->get_one_id_random_joined();
 		}
 		
 		if(empty($random_card_id))
