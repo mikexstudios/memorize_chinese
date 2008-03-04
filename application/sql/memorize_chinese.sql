@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 27, 2008 at 09:43 PM
+-- Generation Time: Mar 03, 2008 at 09:44 PM
 -- Server version: 5.0.45
 -- PHP Version: 5.2.4
 
@@ -27,7 +27,7 @@ CREATE TABLE `cards` (
   `answer` varchar(400) NOT NULL,
   `extra` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=686 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=717 ;
 
 --
 -- Dumping data for table `cards`
@@ -587,7 +587,38 @@ INSERT INTO `cards` (`id`, `deck_id`, `question`, `answer`, `extra`) VALUES
 (682, 15, '顾', 'gù', '(照顾 zhàogu) look after; 顾客 gùkè customer'),
 (683, 15, '妻', 'qī', '(妻子 qīzi) wife'),
 (684, 15, '朝', 'cháo', 'towards; dynasty; 朝鲜 Cháoxiān Korea  [zhāo] (morning)'),
-(685, 15, '管', 'guǎn', 'tube; (管理 guǎnlǐ) manage; 不管 bùguǎn no matter');
+(685, 15, '管', 'guǎn', 'tube; (管理 guǎnlǐ) manage; 不管 bùguǎn no matter'),
+(686, 16, '与', 'yǔ', 'and  [yù] 参与 cānyù participate in  [yú]'),
+(687, 16, '疗', 'liáo', 'treat, cure; 疗法 therapy'),
+(688, 16, '制', 'zhì', '(制度) system; (控制) control; (F製)(制造) manufacture'),
+(689, 16, '脏', 'zāng', '(F髒) dirty  [zàng] (F臟) 心脏 heart'),
+(690, 16, '严', 'yán', 'severe, stern'),
+(691, 16, '穷', 'qióng', 'poor; 无穷 wúqióng infinite'),
+(692, 16, '至', 'zhì', 'to, until; 甚至 shènzhì even; 至少 zhìshǎo at least'),
+(693, 16, '政', 'zhèng', '政府 zhèngfǔ government; 政治 zhèngzhì politics'),
+(694, 16, '府', 'fǔ', '政府 zhèngfǔ government'),
+(695, 16, '竟', 'jìng', 'finish; (竟然) unexpectedly; 究竟 after all'),
+(696, 16, '伤', 'shāng', 'wound, injury; injure'),
+(697, 16, '替', 'tì', 'in place of; (代替 dàitì) replace, substitute'),
+(698, 16, '制', 'zhì', '(制度) system; (控制) control; (F製)(制造) manufacture'),
+(699, 16, '毫', 'háo', 'long fine hair; milli-; 毫不 not at all'),
+(700, 16, '义', 'yì', 'justice; 主义 zhǔyì -ism; 意义 yìyì meaning'),
+(701, 16, '武', 'wǔ', 'military; 武器 wǔqì weapon; 武术 wǔshù martial arts'),
+(702, 16, '愁', 'chóu', 'worry'),
+(703, 16, '营', 'yíng', 'camp; 营火 campfire; 营业 do business'),
+(704, 16, '养', 'yǎng', 'raise, nourish; 营养 yíngyǎng nutrition'),
+(705, 16, '材', 'cái', '(材料 cáiliào) material; 教材 jiàocái teaching material'),
+(706, 16, '素', 'sù', 'plain, white; vegetarian; 因素 yīnsù factor, element'),
+(707, 16, '肥', 'féi', '(肥胖) fat; fertile; (肥料) fertilizer; 肥皂 féizào soap'),
+(708, 16, '食', 'shí', 'eat; (食物 shíwù, 食品 shípǐn) food    [sì] feed'),
+(709, 16, '患', 'huàn', 'worry; anxiety; disaster; 患病 fall ill'),
+(710, 16, '良', 'liáng', '(优良 yōuliáng, 良好) good; 良心 liángxīn conscience'),
+(711, 16, '症', 'zhèng', 'disease; 健忘症 amnesia  [zhēng] 症结'),
+(712, 16, '摄', 'shè', 'absorb; photograph; 拍摄 take a picture'),
+(713, 16, '取', 'qǔ', 'take, get, fetch'),
+(714, 16, '均', 'jūn', 'even; 平均 píngjūn average'),
+(715, 16, '衡', 'héng', '衡量 héngliang weigh, measure, judge'),
+(716, 16, '证', 'zhèng', 'prove; 图书证 library card');
 
 -- --------------------------------------------------------
 
@@ -600,7 +631,7 @@ CREATE TABLE `decks` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `decks`
@@ -621,7 +652,8 @@ INSERT INTO `decks` (`id`, `name`) VALUES
 (12, 'Lesson 12'),
 (13, 'Lesson 13'),
 (14, 'Lesson 14'),
-(15, 'Lesson 15');
+(15, 'Lesson 15'),
+(16, 'Lesson 16');
 
 -- --------------------------------------------------------
 
@@ -645,6 +677,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `session_start`, `session_last_activity`, `session_ip_address`, `session_user_agent`, `session_data`) VALUES
+('4455772980731cdb4e945f60696acfad', 1204601796, 1204602745, '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv', 'a:1:{s:10:"learn_deck";i:16;}'),
 ('d8d62f6ebf2b9617ce20f3520b26be7e', 1203995175, 1203996850, '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv', 'a:0:{}');
 
 -- --------------------------------------------------------
