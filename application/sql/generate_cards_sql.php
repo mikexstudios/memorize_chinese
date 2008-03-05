@@ -38,7 +38,9 @@ echo "<pre>\n";
 foreach($characters as $i=>$each_character)
 {
 	//TODO: Integrate extra-extra information in here.
-	echo 'INSERT INTO cards (deck_id, question, answer, extra) VALUES ('.$deck_id.', "'.$each_character.'", "'.addslashes($pinyins[$i]).'", "'.addslashes($definitions[$i]).'");'."\n";
+	echo 'INSERT INTO cards (deck_id, question, answer, extra, extra2) VALUES ('.
+				$deck_id.', "'.$each_character.'", "'.addslashes($pinyins[$i]).'", "'.
+				addslashes($definitions[$i]).'", "'.addslashes($extra[$i]).'");'."\n";
 	//echo trim($extra[$i])."\n\n";
 }
 echo "</pre>\n";
