@@ -30,6 +30,13 @@
 	font-size: 1.2em;
 }
 
+#content .question p.extra2 {
+	font-size: 1em;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: -10px;
+}
+
 #content .answer {
 	/* margin-top: -40px; */
 	margin-top: 15px;
@@ -57,10 +64,21 @@
 	font-size: 1.2em;
 }
 
+#content .answer p.extra2 {
+	font-size: 1em;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: -10px;
+}
+
 #content .answer p.clicktoshow {
 	font-size: 3em;
 }
 
+#content .real p.clicktoshowextra2 {
+	font-size: 1em;
+	margin-bottom: -5px;
+}
 
 #content .grade {
 	margin-top: 10px;

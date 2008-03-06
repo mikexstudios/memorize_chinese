@@ -19,7 +19,7 @@ foreach($lines as $line)
 		$characters[] = trim($matches[1]);
 		$pinyins[] = $matches[2];
 		$definitions[] = trim($matches[3]);
-		$extra[] = $in_between;
+		$extra[] = trim($in_between);
 		
 		$in_between = ''; //Clear
 	}

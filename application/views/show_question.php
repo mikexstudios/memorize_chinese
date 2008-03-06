@@ -12,11 +12,17 @@
    		// Your code here
    		$("#content div.answer div.real").hide();
    		$("#content div.grade").hide();
+   		$("#content div.real p.extra2").hide();
    		
    		$("#content div.answer p.clicktoshow a").click(function(){
    			$("#content div.answer p.clicktoshow").hide();
 				$("#content div.answer div.real").show();
 				$("#content div.grade").show();
+			});
+			
+			$("#content div.real p.clicktoshowextra2 a").click(function(){
+   			$("#content div.real p.clicktoshowextra2").hide();
+				$("#content div.real p.extra2").show();
 			});
 			/*
    		$("#content div.answer p.clicktoshow").click(function(){
@@ -46,6 +52,14 @@
 		?>
 			<p class="extra"><?php out('question_extra'); ?></p>
 		<?php endif; ?>
+
+		<?php 
+			$question_extra2 = get('question_extra2');
+			if(!empty($question_extra2)):
+		?>
+			<p class="clicktoshowextra2"><a href="#">Show Extra Information</a></p>
+			<p class="extra2"><?php out('question_extra2'); ?></p>
+		<?php endif; ?>
 	</div>
 </div>
 
@@ -59,6 +73,14 @@
 			if(!empty($answer_extra)):
 		?>
 			<p class="extra"><?php out('answer_extra'); ?></p>
+		<?php endif; ?>
+		
+		<?php 
+			$answer_extra2 = get('answer_extra');
+			if(!empty($answer_extra2)):
+		?>
+			<p class="clicktoshowextra2"><a href="#">Show Extra Information</a></p>
+			<p class="extra2"><?php out('answer_extra2'); ?></p>
 		<?php endif; ?>
 	</div>
 </div>
