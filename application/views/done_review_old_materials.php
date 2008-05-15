@@ -9,7 +9,7 @@
 <body>
 
 <div id="header">
-<h1>Memorize Chinese!</h1>
+<h1><a href="<?php echo base_url(); ?>">Memorize Chinese!</a></h1>
 </div>
 
 

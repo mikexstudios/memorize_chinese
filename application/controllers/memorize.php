@@ -78,14 +78,14 @@ class Memorize extends Controller {
 				$question->extra = preg_replace('/'.$question->question.'/', '_', $question->extra);
 				$this->template->add_value('question_extra', $question->extra);
 				$question->extra2 = preg_replace('/'.$question->question.'/', '_', $question->extra2);
-				$this->template->add_value('question_extra2', $question->extra2);
+				$this->template->add_value('question_extra2', nl2br_except_pre($question->extra2));
 			}
 			else
 			{
 				$this->template->add_value('question', $question->question);
 				$this->template->add_value('answer', $question->answer);
 				$this->template->add_value('answer_extra', $question->extra);
-				$this->template->add_value('answer_extra2', $question->extra2);
+				$this->template->add_value('answer_extra2', nl2br_except_pre($question->extra2));
 			}
 			
 			

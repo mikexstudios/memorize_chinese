@@ -30,6 +30,9 @@ foreach($lines as $line)
 	
 }
 
+//For the last in between entry:
+$extra[] = trim($in_between);
+
 //The first entry of extra is the "Lesson # words compiled by.." text. So
 //we get rid of it:
 array_shift($extra);
