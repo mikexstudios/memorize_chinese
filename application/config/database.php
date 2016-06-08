@@ -34,9 +34,9 @@
 $active_group = "development";
 
 $db['default']['hostname'] = "localhost";
-$db['default']['username'] = "";
+$db['default']['username'] = "root";
 $db['default']['password'] = "";
-$db['default']['database'] = "";
+$db['default']['database'] = "app";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
 $db['default']['active_r'] = TRUE;
@@ -46,9 +46,9 @@ $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = "";
 
 $db['development']['hostname'] = "localhost";
-$db['development']['username'] = "test";
-$db['development']['password'] = "test";
-$db['development']['database'] = "memorize_chinese";
+$db['development']['username'] = "root";
+$db['development']['password'] = "";
+$db['development']['database'] = "app";
 $db['development']['dbdriver'] = "mysql";
 $db['development']['dbprefix'] = "";
 $db['development']['active_r'] = TRUE;
