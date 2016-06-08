@@ -22,6 +22,41 @@ purposes.
 [sm]: https://en.wikipedia.org/wiki/SuperMemo
 [a]: http://ankisrs.net/
 
+## Screenshots
+
+<table>
+<tr>
+  <td align="center">
+   <img src="https://github.com/mikexstudios/memorize_chinese/blob/master/screenshots/home.png" alt="home" width="100%">
+   <p><strong>Home</strong></p>
+  </td>
+  <td align="center">
+    <img src="https://github.com/mikexstudios/memorize_chinese/blob/master/screenshots/learn.png" alt="home" width="100%">
+    <p><strong>Learn new words</strong></p>
+  </td>
+</tr>
+<tr>
+  <td align="center">
+   <img src="https://github.com/mikexstudios/memorize_chinese/blob/master/screenshots/lesson.png" alt="home" width="100%">
+   <p><strong>A single flashcard</strong></p>
+  </td>
+  <td align="center">
+    <img src="https://github.com/mikexstudios/memorize_chinese/blob/master/screenshots/lesson-answer.png" alt="home" width="100%">
+    <p><strong>Showing answer and rating</strong></p>
+  </td>
+</tr>
+<tr>
+  <td align="center">
+   <img src="https://github.com/mikexstudios/memorize_chinese/blob/master/screenshots/flipped.png" alt="home" width="100%">
+   <p><strong>Flipped mode showing the definition first</strong></p>
+  </td>
+  <td align="center">
+    <img src="https://github.com/mikexstudios/memorize_chinese/blob/master/screenshots/flipped-answer.png" alt="home" width="100%">
+    <p><strong>Showing answer and rating</strong></p>
+  </td>
+</tr>
+</table>
+
 ## Usage
 
 1. Build the `Dockerfile`:
